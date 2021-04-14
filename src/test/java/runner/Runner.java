@@ -11,7 +11,8 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json"},
         glue = {"steps", "hooks"},
         features = {"src/test/resources/features"},
-        dryRun = false
+        dryRun = false,
+        stepNotifications = true
 )
 
 
