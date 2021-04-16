@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 
 public class LogInPage {
+
     public LogInPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -17,4 +18,6 @@ public class LogInPage {
     @FindBy(xpath = "//input[@name='password']")
     public WebElement password;
 
+    @FindBy(xpath ="//*[contains(text(),'Login')]")
+    public WebElement logInButton;
 }

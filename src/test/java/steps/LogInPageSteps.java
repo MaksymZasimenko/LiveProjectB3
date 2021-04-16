@@ -8,9 +8,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import pages.LogInPage;
 import utils.Driver;
+import utils.MiscUtils;
 
 public class LogInPageSteps {
+
     LogInPage logInPage = new LogInPage();
+
     @Given("Login page should be displayed")
     public void navigateToLogInPage(){
         Assert.assertEquals(Driver.getDriver().getTitle(), "Home Page");
@@ -35,5 +38,29 @@ public class LogInPageSteps {
     public void iVerifyThatInputBoxIsEnabled(String input) {
         Assert.assertTrue(logInPage.username.isEnabled());
         Assert.assertTrue(logInPage.password.isEnabled());
+    }
+
+    @Then("I enter {string} in the email input box")
+    public void iEnterInTheInputBox(String arg0) {
+        WebElement element = logInPage.username;
+        MiscUtils.highlightElement(element).sendKeys(arg0);
+    }
+
+    @Then("I enter {string} in the password input box")
+    public void iEnterInThePasswordInputBox(String arg0) {
+        WebElement element = logInPage.password;
+        MiscUtils.highlightElement(element).sendKeys(arg0);
+    }
+
+    @Then("I click Login button")
+    public void iClickButton() {
+        WebElement element = logInPage.logInButton;
+        MiscUtils.highlightElement(element).click();
+    }
+
+    @Then("I should see {string}")
+    public void iShouldSee(String arg0) {
+        WebElement element = Driver.getDriver().findElement(By.xpath("//*[contains(text(),'"+arg0+"')]"));
+        Assert.assertTrue(element.isDisplayed());
     }
 }
