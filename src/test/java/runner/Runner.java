@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json"},
         glue = {"steps", "hooks"},
-        features = {"src/test/resources/features/login.feature"},
+        features = {"src/test/resources/features/meetingLink.feature"},
         dryRun = false,
         stepNotifications = true
 )
