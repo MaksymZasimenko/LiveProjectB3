@@ -14,7 +14,7 @@ import utils.Driver;
 
 import java.util.List;
 
-public class MeetingLinkSteps {
+public class MeetingLinksSteps {
     MeetingLinksPage meetingLinksPage = new MeetingLinksPage();
     LogInPage logInPage = new LogInPage();
     private WebElement meetingLinksBtn = meetingLinksPage.meetingLinksBtn;
@@ -33,10 +33,11 @@ public class MeetingLinkSteps {
         meetingLinksBtn.click();
     }
 
-    @Then("I verify that im on meeting links page")
-    public void iVerifyThatImOnMeetingLinksPage() {
-        Assert.assertEquals("Meeting Links", Driver.getDriver().getTitle());
+    @Then("I verify that im on {string} page")
+    public void iVerifyThatImOnPage(String arg0) {
+        Assert.assertEquals(arg0, Driver.getDriver().getTitle());
     }
+
     @Then("I enter {string} in the Name input box")
     public void iEnterInTheNameInputBox(String arg0) {
         meetingLinksPage.linkName.sendKeys(ConfigReader.getProperty("testName"));

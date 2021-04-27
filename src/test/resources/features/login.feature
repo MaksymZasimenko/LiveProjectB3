@@ -11,8 +11,8 @@ Feature: Login page
   Scenario Outline: Test user ability to login
     Given Login page should be displayed
     Then I enter "<email>" in the email input box
-    Then I enter "<password>" in the password input box
-    Then I click Login button
+    And I enter "<password>" in the password input box
+    And I click Login button
     Then I should see "<message>"
 
     Examples:

@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -46,13 +47,13 @@ public class LogInPageSteps {
         MiscUtils.highlightElement(element).sendKeys(arg0);
     }
 
-    @Then("I enter {string} in the password input box")
+    @And("I enter {string} in the password input box")
     public void iEnterInThePasswordInputBox(String arg0) {
         WebElement element = logInPage.password;
         MiscUtils.highlightElement(element).sendKeys(arg0);
     }
 
-    @Then("I click Login button")
+    @And("I click Login button")
     public void iClickButton() {
         WebElement element = logInPage.logInButton;
         MiscUtils.highlightElement(element).click();
@@ -62,5 +63,11 @@ public class LogInPageSteps {
     public void iShouldSee(String arg0) {
         WebElement element = Driver.getDriver().findElement(By.xpath("//*[contains(text(),'"+arg0+"')]"));
         Assert.assertTrue(element.isDisplayed());
+    }
+
+    @Then("I click Homework button")
+    public void iClickHomeworkButton() {
+        WebElement element=Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Homeworks')]"));
+        MiscUtils.highlightElement(element).click();
     }
 }

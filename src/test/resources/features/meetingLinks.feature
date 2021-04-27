@@ -4,11 +4,11 @@ Feature: Meeting link page
   Scenario Outline: Verify creation of Meeting link page and it has user inputs
     Given Login page should be displayed
     Then I enter "admin@gmail.com" in the email input box
-    Then I enter "admin123" in the password input box
-    Then I click Login button
+    And I enter "admin123" in the password input box
+    And I click Login button
     Then I verify meeting links button is enabled
     Then I click on meeting links button
-    Then I verify that im on meeting links page
+    Then I verify that im on "Meeting Links" page
     Then I enter "Google" in the Name input box
     Then I enter "http://google.com" in the Link input box
     Then I select "<Color>" from the Color table
